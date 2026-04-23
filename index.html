@@ -1,393 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="./style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pen</title>
+    <title>Untitled</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="stylesheet" href="/style.css">
   </head>
-  <body>
 
-    <script src="./script.js"></script>
-  </body>
-</html>
+  <body>
+    <h1>Classic</h1>
 <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>社区圈子界面</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Digital Curator | Experience Designer Portfolio</title>
+<!-- Typography -->
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#e7fdf2",
+                    "on-secondary": "#fbf8f8",
+                    "surface-container-lowest": "#ffffff",
+                    "outline": "#757c7d",
+                    "inverse-surface": "#0c0f0f",
+                    "surface-dim": "#d4dbdd",
+                    "inverse-on-surface": "#9c9d9d",
+                    "on-background": "#2d3435",
+                    "secondary-container": "#e4e2e1",
+                    "on-tertiary-container": "#4a5c55",
+                    "surface-tint": "#4f625a",
+                    "on-secondary-fixed": "#3f3f3f",
+                    "on-primary-fixed": "#31433c",
+                    "error-container": "#fe8983",
+                    "primary-container": "#d2e7dd",
+                    "on-tertiary": "#e9fef4",
+                    "secondary-fixed": "#e4e2e1",
+                    "primary-fixed-dim": "#c4d9cf",
+                    "inverse-primary": "#e3f9ee",
+                    "primary-fixed": "#d2e7dd",
+                    "on-error": "#fff7f6",
+                    "outline-variant": "#adb3b4",
+                    "surface-bright": "#f9f9f9",
+                    "on-tertiary-fixed-variant": "#54675f",
+                    "surface-container-high": "#e4e9ea",
+                    "secondary-dim": "#535353",
+                    "background": "#f9f9f9",
+                    "on-primary-container": "#43564e",
+                    "surface-container": "#ebeeef",
+                    "primary": "#4f625a",
+                    "primary-dim": "#44564f",
+                    "on-tertiary-fixed": "#384a43",
+                    "secondary-fixed-dim": "#d6d4d3",
+                    "tertiary-fixed-dim": "#d0e4db",
+                    "on-secondary-fixed-variant": "#5c5b5b",
+                    "on-error-container": "#752121",
+                    "on-surface": "#2d3435",
+                    "on-primary-fixed-variant": "#4d6058",
+                    "secondary": "#5f5f5f",
+                    "tertiary-container": "#def3e9",
+                    "on-secondary-container": "#525151",
+                    "error": "#9f403d",
+                    "surface-variant": "#dde4e5",
+                    "tertiary": "#51635c",
+                    "surface-container-low": "#f2f4f4",
+                    "tertiary-dim": "#455750",
+                    "surface-container-highest": "#dde4e5",
+                    "error-dim": "#4e0309",
+                    "tertiary-fixed": "#def3e9",
+                    "on-surface-variant": "#5a6061",
+                    "surface": "#f9f9f9"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
-        body {
-            background-color: #f5f7fa;
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
-        /* 手机容器 */
-        .phone-container {
-            width: 375px;
-            background-color: #ffffff;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        /* 顶部状态栏 */
-        .status-bar {
-            display: flex;
-            justify-content: space-between;
-            padding: 12px 20px;
-            font-size: 14px;
-            color: #333;
-        }
-        /* 顶部导航 */
-        .top-nav {
-            display: flex;
-            justify-content: center;
-            background-color: #ffffff;
-            border-bottom: 1px solid #eee;
-        }
-        .nav-item {
-            padding: 12px 24px;
-            font-size: 16px;
-            color: #666;
-            cursor: pointer;
-            position: relative;
-        }
-        .nav-item.active {
-            color: #333;
-            font-weight: 500;
-        }
-        .nav-item.active::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 30px;
-            height: 2px;
-            background-color: #4080ff;
-        }
-        /* 圈子列表 */
-        .circle-list {
-            padding: 16px;
-            background-color: #f5f7fa;
-        }
-        .circle-card {
-            background-color: #ffffff;
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 12px;
-            display: flex;
-            gap: 12px;
-        }
-        .circle-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            background-color: #e8f0fe;
-            flex-shrink: 0;
-            overflow: hidden;
-        }
-        .circle-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        .circle-info {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .circle-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-        }
-        .circle-name {
-            font-size: 17px;
-            font-weight: 500;
-            color: #333;
-            margin-bottom: 4px;
-        }
-        .circle-desc {
-            font-size: 13px;
-            color: #888;
-            margin-bottom: 8px;
-        }
-        .join-btn {
-            padding: 8px 16px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-            color: #333;
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .join-btn:hover {
-            background-color: #f0f0f0;
-        }
-        .join-btn.joined {
-            background-color: #f0f0f0;
-            color: #666;
-            border-color: #ddd;
-            cursor: default;
-        }
-        .circle-members {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 8px;
-        }
-        .avatars {
-            display: flex;
-        }
-        .avatar {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            background-color: #ddd;
-            margin-left: -6px;
-            border: 1px solid #fff;
-        }
-        .avatar:first-child {
-            margin-left: 0;
-        }
-        .member-count {
-            font-size: 13px;
-            color: #888;
-        }
-        .circle-event {
-            background-color: #e8f0ff;
-            padding: 8px 12px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #4080ff;
-        }
-        /* 底部导航 */
-        .bottom-nav {
-            display: flex;
-            justify-content: space-around;
-            padding: 12px 0;
-            background-color: #ffffff;
-            border-top: 1px solid #eee;
-        }
-        .nav-bottom-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            font-size: 12px;
-            color: #888;
-            cursor: pointer;
-        }
-        .nav-bottom-item.active {
-            color: #4080ff;
-        }
-        .nav-icon {
-            width: 24px;
-            height: 24px;
-            margin-bottom: 4px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-        .nav-icon.home {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
-        }
-        .nav-bottom-item.active .nav-icon.home {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234080ff' stroke-width='2'%3E%3Cpath d='M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
-        }
-        .nav-icon.service {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z'/%3E%3Cpolyline points='14 2 14 8 20 8'/%3E%3Cline x1='16' y1='13' x2='8' y2='13'/%3E%3Cline x1='16' y1='17' x2='8' y2='17'/%3E%3Cpolyline points='10 9 9 9 8 9'/%3E%3C/svg%3E");
-        }
-        .nav-icon.social {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234080ff' stroke-width='2'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E");
-        }
-        .nav-icon.my {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+        .hero-gradient {
+            background: linear-gradient(45deg, #4f625a 0%, #d2e7dd 100%);
         }
     </style>
 </head>
-<body>
-    <div class="phone-container">
-        <!-- 状态栏 -->
-        <div class="status-bar">
-            <span>09:42</span>
-            <div>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
-                    <path d="M18 7h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                    <rect x="2" y="7" width="14" height="10" rx="2" ry="2"/>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
-                    <path d="M18 7h-2a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
-                    <rect x="2" y="7" width="14" height="10" rx="2" ry="2"/>
-                </svg>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2">
-                    <rect x="1" y="5" width="15" height="14" rx="2" ry="2"/>
-                    <line x1="23" y1="13" x2="23" y2="11"/>
-                </svg>
+<body class="bg-background text-on-background selection:bg-primary-container selection:text-on-primary-container">
+<!-- Top Navigation Bar -->
+<nav class="fixed top-0 w-full z-50 bg-stone-50/80 dark:bg-stone-950/80 backdrop-blur-xl transition-all duration-300 ease-out">
+<div class="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full">
+<div class="font-serif text-2xl font-bold tracking-tighter text-stone-900 dark:text-stone-50">
+                The Digital Curator
             </div>
-        </div>
+<div class="hidden md:flex items-center gap-10 font-serif text-lg tracking-tight">
+<a class="text-emerald-900 dark:text-emerald-400 font-bold border-b-2 border-emerald-900 dark:border-emerald-400 pb-1" href="#">Work</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">About</a>
+<a class="text-stone-600 dark:text-stone-400 hover:text-stone-900 dark:hover:text-stone-100 transition-colors" href="#">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-medium hover:opacity-90 transition-all">
+                Get in touch
+            </button>
+</div>
+</nav>
+<main class="pt-32">
+<!-- Hero Section -->
+<section class="max-w-7xl mx-auto px-8 mb-32">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="w-full md:w-3/5">
+<h1 class="text-6xl md:text-8xl font-bold tracking-tighter text-on-background leading-[1.1] mb-8">
+                        Crafting <span class="italic text-primary">Intuitive</span> Digital Experiences
+                    </h1>
+<p class="text-xl md:text-2xl text-on-surface-variant font-light leading-relaxed max-w-2xl mb-12">
+                        A UX practitioner dedicated to the art of intentional design, transforming complex problems into elegant, human-centric exhibitions of functional beauty.
+                    </p>
+<div class="flex items-center gap-6">
+<button class="hero-gradient text-on-primary px-8 py-4 rounded-lg text-lg font-semibold hover:shadow-xl transition-all duration-300">
+                            View My Work
+                        </button>
+<a class="group flex items-center gap-2 font-semibold text-primary py-2 border-b-2 border-primary border-opacity-20 hover:border-opacity-100 transition-all" href="#">
+                            About My Process
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="w-full md:w-2/5 aspect-[4/5] rounded-xl overflow-hidden bg-surface-container-low">
+<img class="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 transition-all duration-700 ease-in-out" data-alt="Modern minimalist workspace with a large monitor displaying abstract UI wireframes, soft natural light, and a single green plant." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzxuns5VkYuw7RUC8VqTlaUb0PIG32aTRc74q-yt1_lDh9NwcdMt3B8nWqVHrNQ9pHXUXS6td8r5LhRPP1OM4riM82lJBbWm72H1OfUHdOgqsHkESjisay4y7vk_Oqnkc475-TV8KcYeVxEnPts28hAguuMTwnfloEwQUg3kmTB5UxBdDpPoIBAQcs-7B4kmyUoDLpwD_xve9HZBvqz716E5aKq-mU92jD1BreB59QyboMbVnwXB6bKJctljdBm9uYOnPPS6yBY1w"/>
+</div>
+</div>
+</section>
+<!-- Featured Work Section -->
+<section class="bg-surface-container-low py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div>
+<span class="font-label text-sm tracking-[0.2em] uppercase text-primary font-bold mb-4 block">Selected Works</span>
+<h2 class="text-4xl md:text-5xl font-bold text-on-background">Featured Case Studies</h2>
+</div>
+<p class="max-w-md text-on-surface-variant text-lg">
+                        A curation of projects where research meets aesthetic precision.
+                    </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Case Study 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden rounded-lg bg-surface mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Clean mobile app interface showing a minimalist financial dashboard with elegant charts and sage green accents." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqpXuPK3W0MlSIBo-YfrF4CQk3wy5G3n6uMpT8T0NuWA8HX-BQwQ4dQhhEZwY0MjIi5yKiVCcDIq-jIC2TVw-h9NhTCE9yhyQUP4M9xXRCSlfdMc0-YpDCrN0AFqaZiyVRQelpIRoptQYS9Ca6FHBhTeOHhBv9BTCGH6ZrB8K6hBrEtSYwsZ4zrE0VGNVZQBnvkK51jWX761DF2K9RdiyVk03MIyDFjGzh7wBeB-siZGTV9IS6jOoxyj0wpjxMTVmWEj-U3L0p5aE"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex gap-3 mb-4">
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full uppercase tracking-wider">Fintech</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full uppercase tracking-wider">Mobile App</span>
+</div>
+<h3 class="text-3xl font-bold mb-3 group-hover:text-primary transition-colors">Lumina Banking</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Redefining high-wealth asset management through a focused, minimalist mobile experience that prioritizes clarity over clutter.</p>
+<span class="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest border-b-2 border-primary/20 pb-1 group-hover:border-primary transition-all">
+                            View Case Study
+                        </span>
+</div>
+<!-- Case Study 2 -->
+<div class="group cursor-pointer md:mt-24">
+<div class="aspect-[16/10] overflow-hidden rounded-lg bg-surface mb-6 relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Editorial website layout for a design magazine with high-contrast typography and large immersive imagery." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDeN6W0kqs1RkknazrtTXCRlcTLn6dJRl1hB0M_qvs6pUHoqACTesYUfdYX7sD46ebiWyKPRpxwq6AK3XHYDw5w1OQ0O9kC-ctVP03GAn_bNY2yZy-Ce3pI4rQQg-iQeQN3k9APIOurVQHFqK4YEbuiAyGNz9E0njvgvBFmznVoT9v9aBtFin7fb62onCKHqEFGnVqoZGU30weqXUCD8qluGTUErz3V-IUXOtZiXL2jbgdsm-DPq5vUgSY1V7ObiM3gjIzhVAKhT8"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+</div>
+<div class="flex gap-3 mb-4">
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full uppercase tracking-wider">E-Commerce</span>
+<span class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant text-xs font-bold rounded-full uppercase tracking-wider">Web Design</span>
+</div>
+<h3 class="text-3xl font-bold mb-3 group-hover:text-primary transition-colors">Vogue Atelier</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">An editorial-first digital storefront for high-end fashion, bridging the gap between physical boutique and digital ease.</p>
+<span class="inline-flex items-center gap-2 font-bold text-sm uppercase tracking-widest border-b-2 border-primary/20 pb-1 group-hover:border-primary transition-all">
+                            View Case Study
+                        </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Expertise Section -->
+<section class="py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="md:col-span-1">
+<span class="font-label text-sm tracking-[0.2em] uppercase text-primary font-bold mb-4 block">Capabilites</span>
+<h2 class="text-4xl font-bold leading-tight mb-8">My Expertise in the Digital Realm</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                            Approaching every challenge with a curator's eye, I specialize in distilling complex data into seamless human experiences.
+                        </p>
+</div>
+<div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-16">
+<!-- Capability 1 -->
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">architecture</span>
+</div>
+<h3 class="text-2xl font-bold">UX Design</h3>
+<p class="text-on-surface-variant">Defining user journeys, information architecture, and low-fidelity prototypes that form the skeletal foundation of successful products.</p>
+</div>
+<!-- Capability 2 -->
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">search_insights</span>
+</div>
+<h3 class="text-2xl font-bold">User Research</h3>
+<p class="text-on-surface-variant">Conducting qualitative and quantitative studies to uncover the hidden 'why' behind user behavior and business requirements.</p>
+</div>
+<!-- Capability 3 -->
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">palette</span>
+</div>
+<h3 class="text-2xl font-bold">Interface Design</h3>
+<p class="text-on-surface-variant">Crafting visually sophisticated systems that align with brand identity while ensuring impeccable accessibility and usability.</p>
+</div>
+<!-- Capability 4 -->
+<div class="flex flex-col gap-4">
+<div class="w-12 h-12 rounded-lg bg-primary-container flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-weight="fill">precision_manufacturing</span>
+</div>
+<h3 class="text-2xl font-bold">Prototyping</h3>
+<p class="text-on-surface-variant">Building high-fidelity interactive models to test micro-interactions and validate design decisions before development begins.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="max-w-7xl mx-auto px-8 py-32 mb-16">
+<div class="bg-primary text-on-primary rounded-xl p-16 md:p-24 text-center overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-on-primary rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -right-24 w-96 h-96 bg-primary-container rounded-full blur-3xl"></div>
+</div>
+<div class="relative z-10">
+<h2 class="text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Let’s Curate Something New</h2>
+<p class="text-xl md:text-2xl opacity-80 font-light mb-12 max-w-2xl mx-auto">Currently accepting select projects for 2024. Reach out to discuss how we can elevate your product's user experience.</p>
+<button class="bg-surface-container-lowest text-primary px-10 py-5 rounded-lg text-xl font-bold hover:bg-on-primary transition-all">
+                        Get in Touch Today
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 bg-stone-100 dark:bg-stone-900 border-t border-outline-variant/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 max-w-7xl mx-auto w-full gap-4">
+<p class="font-sans text-sm tracking-wide uppercase text-stone-500 dark:text-stone-400">
+                © 2024 The Digital Curator. Built with intent.
+            </p>
+<div class="flex gap-8 font-sans text-sm tracking-wide uppercase">
+<a class="text-stone-500 dark:text-stone-400 hover:text-emerald-800 dark:hover:text-emerald-300 underline-offset-4 underline transition-opacity duration-200" href="#">LinkedIn</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-emerald-800 dark:hover:text-emerald-300 underline-offset-4 underline transition-opacity duration-200" href="#">Dribbble</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-emerald-800 dark:hover:text-emerald-300 underline-offset-4 underline transition-opacity duration-200" href="#">Read.cv</a>
+</div>
+</div>
+</footer>
+</body></html>
+    <script src="/script.js"></script>
+  </body>
 
-        <!-- 顶部导航 -->
-        <div class="top-nav">
-            <div class="nav-item">话题</div>
-            <div class="nav-item active">圈子</div>
-        </div>
-
-        <!-- 圈子列表 -->
-        <div class="circle-list">
-            <!-- 游泳俱乐部 -->
-            <div class="circle-card">
-                <div class="circle-avatar">
-                    <img src="https://via.placeholder.com/80/e8f0fe/4080ff?text=游泳" alt="游泳俱乐部">
-                </div>
-                <div class="circle-info">
-                    <div class="circle-header">
-                        <div>
-                            <div class="circle-name">松湖智谷游泳俱乐部</div>
-                            <div class="circle-desc">由游泳爱好者发起，欢迎志同道合...</div>
-                        </div>
-                        <button class="join-btn" onclick="joinCircle(this)">+ 加入</button>
-                    </div>
-                    <div class="circle-members">
-                        <div class="avatars">
-                            <div class="avatar" style="background-color:#e67e56;"></div>
-                            <div class="avatar" style="background-color:#16a085;"></div>
-                            <div class="avatar" style="background-color:#f1c40f;"></div>
-                            <div class="avatar" style="background-color:#2980b9;"></div>
-                            <div class="avatar" style="background-color:#ddd;"></div>
-                        </div>
-                        <span class="member-count">共69人</span>
-                    </div>
-                    <div class="circle-event">4月29日，松湖游泳馆，松湖智谷队对战园区大...</div>
-                </div>
-            </div>
-
-            <!-- 摄影俱乐部 -->
-            <div class="circle-card">
-                <div class="circle-avatar">
-                    <img src="https://via.placeholder.com/80/e8f0fe/4080ff?text=摄影" alt="摄影俱乐部">
-                </div>
-                <div class="circle-info">
-                    <div class="circle-header">
-                        <div>
-                            <div class="circle-name">松湖智谷摄影俱乐部</div>
-                            <div class="circle-desc">由游泳爱好者发起，欢迎志同道合...</div>
-                        </div>
-                        <button class="join-btn" onclick="joinCircle(this)">+ 加入</button>
-                    </div>
-                    <div class="circle-members">
-                        <div class="avatars">
-                            <div class="avatar" style="background-color:#e67e56;"></div>
-                            <div class="avatar" style="background-color:#85c1e9;"></div>
-                            <div class="avatar" style="background-color:#7dcea0;"></div>
-                            <div class="avatar" style="background-color:#f1c40f;"></div>
-                            <div class="avatar" style="background-color:#ddd;"></div>
-                        </div>
-                        <span class="member-count">共199人</span>
-                    </div>
-                    <div class="circle-event">4月29日，松湖游泳馆，松湖智谷队对战园区大...</div>
-                </div>
-            </div>
-
-            <!-- 植物俱乐部 -->
-            <div class="circle-card">
-                <div class="circle-avatar">
-                    <img src="https://via.placeholder.com/80/d5e8d5/27ae60?text=植物" alt="植物俱乐部">
-                </div>
-                <div class="circle-info">
-                    <div class="circle-header">
-                        <div>
-                            <div class="circle-name">松湖智谷植物俱乐部</div>
-                            <div class="circle-desc">由游泳爱好者发起，欢迎志同道合...</div>
-                        </div>
-                        <button class="join-btn joined" disabled>已加入</button>
-                    </div>
-                    <div class="circle-members">
-                        <div class="avatars">
-                            <div class="avatar" style="background-color:#bb8fce;"></div>
-                            <div class="avatar" style="background-color:#f1948a;"></div>
-                            <div class="avatar" style="background-color:#85c1e9;"></div>
-                            <div class="avatar" style="background-color:#7dcea0;"></div>
-                            <div class="avatar" style="background-color:#ddd;"></div>
-                        </div>
-                        <span class="member-count">共106人</span>
-                    </div>
-                    <div class="circle-event">4月29日，松湖游泳馆，松湖智谷队对战园区大...</div>
-                </div>
-            </div>
-
-            <!-- 猫咪俱乐部 -->
-            <div class="circle-card">
-                <div class="circle-avatar">
-                    <img src="https://via.placeholder.com/80/f0eae4/8b5a2b?text=猫咪" alt="猫咪俱乐部">
-                </div>
-                <div class="circle-info">
-                    <div class="circle-header">
-                        <div>
-                            <div class="circle-name">松湖智谷猫咪俱乐部</div>
-                            <div class="circle-desc">由游泳爱好者发起，欢迎志同道合...</div>
-                        </div>
-                        <button class="join-btn" onclick="joinCircle(this)">+ 加入</button>
-                    </div>
-                    <div class="circle-members">
-                        <div class="avatars">
-                            <div class="avatar" style="background-color:#e67e56;"></div>
-                            <div class="avatar" style="background-color:#3498db;"></div>
-                            <div class="avatar" style="background-color:#2ecc71;"></div>
-                            <div class="avatar" style="background-color:#9b59b6;"></div>
-                            <div class="avatar" style="background-color:#ddd;"></div>
-                        </div>
-                        <span class="member-count">共838人</span>
-                    </div>
-                    <div class="circle-event">4月29日，松湖游泳馆，松湖智谷队对战园区大...</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- 底部导航 -->
-        <div class="bottom-nav">
-            <div class="nav-bottom-item">
-                <div class="nav-icon home"></div>
-                <span>首页</span>
-            </div>
-            <div class="nav-bottom-item">
-                <div class="nav-icon service"></div>
-                <span>服务</span>
-            </div>
-            <div class="nav-bottom-item active">
-                <div class="nav-icon social"></div>
-                <span>社交</span>
-            </div>
-            <div class="nav-bottom-item">
-                <div class="nav-icon my"></div>
-                <span>我的</span>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // 加入/退出圈子按钮交互
-        function joinCircle(btn) {
-            if (btn.classList.contains('joined')) {
-                btn.classList.remove('joined');
-                btn.textContent = '+ 加入';
-                btn.disabled = false;
-            } else {
-                btn.classList.add('joined');
-                btn.textContent = '已加入';
-                btn.disabled = true;
-            }
-        }
-    </script>
-</body>
 </html>
