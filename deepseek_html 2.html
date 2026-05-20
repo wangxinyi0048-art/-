@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Belle Duffner · Designer & Developer</title>
+  <!-- 简洁字体 & 干净图标库 (Font Awesome 6 免费) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background-color: #000000;
+    }
+
+    body {
+      --nav-height: 70px;
+      color: #f5f5f5;
+      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
+      line-height: 1.4;
+      scroll-behavior: smooth;
+      overflow-x: clip;
+    }
+    
+    /* 可定制滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1e1f2a;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+        }
+
+
+    /* 平滑容器 */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* 导航栏 */
+    .navbar {
+      padding: 12px 0rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+        border-bottom: none;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: transparent;
+    }
+
+    .navbar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 100vw;
+      height: 100%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* Navbar text color and weight when navbar is opaque */
+    .navbar .nav-links a {
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    .navbar .brand,
+    .navbar .brand .logo {
+      color: #ffffff;
+      font-weight: 400;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, 0.45);
+      object-fit: cover;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.06);
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, #ffffff 0%, #a8a8a8 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+        font-size: 16px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.4rem;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #ffffff;
+      transition: color 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      text-underline-offset: 8px;
+    }
+
+    /* 通用节样式 */
+    section {
+      padding: 5rem 0;
+    }
+
+    #work {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      padding: 5rem 0;
+      margin: 0;
+    }
+
+    .hero {
+      padding: 8rem 0 6rem 0;
+      text-align: center;
+      position: relative;
+      min-height: calc(100vh - 101px);
+      overflow: hidden;
+    }
+
+    .hero > :not(.moon-surface) {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #000000;
+      border: 1px solid #2a2a2a;
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.2px;
+    }
+
+    .hero h1 {
+      font-size: 40pt;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      max-width: 850px;
+      margin: 0 auto 1rem;
+      background: linear-gradient(145deg, #ffffff, #a8a8a8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      color: #cfcfcf;
+      max-width: 620px;
+      margin: 8px auto 0;
+      line-height: 1.4;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2.2rem;
+      background: #ffffff;
+      color: #000000;
+      padding: 0.72rem 1.45rem;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: 400;
+      transition: all 0.25s ease;
+      border: 2px solid transparent;
+      box-shadow: none;
+      font-size: 1.05rem;
+      line-height: 1;
+    }
+
+    .cta-button i {
+      font-size: 1.35rem;
+      color: #ffffff;
+    }
+
+    .cta-button:hover {
+      background: #f2f2f2;
+      color: #000000;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 22px rgba(255, 255, 255, 0.16);
+    }
+
+    .cta-button.secondary {
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      border-color: transparent;
+      box-shadow: none;
+    }
+
+    .cta-button.secondary:hover {
+      border-color: transparent;
+    }
+
+    .cta-button + .cta-button {
+      margin-left: 30px;
+    }
+
+    @media (max-width: 600px) {
+      .logo {
+        font-size: 14px;
+      }
+      .cta-button + .cta-button {
+        margin-left: 8px;
+      }
+      .hero h1 {
+        font-size: 32px;
+        line-height: 1.15;
+      }
+    }
+
+    /* 作品集网格 */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: 2rem;
+      border-left: 2px solid #ffffff;
+      padding-left: 1rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    @media (max-width: 720px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project-card {
+      background: #000000;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: none;
+      border: 1px solid #252525;
+    }
+    .project-img {
+      width: 100%;
+      height: 400px;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .project-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (max-width: 720px) {
+      .project-img {
+        height: 300px;
+      }
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+      box-shadow: none;
+      border-color: #4a4a4a;
+    }
+
+    .project-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #e8e8e8;
+    }
+
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .project-tag {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: #b8b8b8;
+      margin-bottom: 0.75rem;
+      display: inline-block;
+    }
+
+    .project-info p {
+      color: #d0d0d0;
+      line-height: 1.4;
+      font-size: 0.95rem;
+    }
+    
+    
+
+    /* 设计项目主区域 */
+    .design-projects-header {
+      margin: 0 0 1.5rem 0;
+      padding-bottom: 0.75rem;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .design-projects-header h2 {
+      font-size: 1.9rem;
+      font-weight: 400;
+      background: linear-gradient(135deg, #ffffff, #ffffff);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .design-projects-header span {
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    .split-layout {
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 4rem;
+      margin-top: 1rem;
+      align-items: start;
+    }
+
+    @media (max-width: 900px) {
+      .split-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+
+    .directory-area {
+      background: transparent;
+      border-radius: 0;
+      border: none;
+      backdrop-filter: none;
+      padding: 0;
+      height: fit-content;
+      position: sticky;
+      top: calc(var(--nav-height) + 1.5rem);
+      align-self: start;
+      max-height: calc(100vh - var(--nav-height) - 3rem);
+      overflow-y: auto;
+    }
+
+    .directory-title {
+      font-size: 1.3rem;
+      font-weight: 300;
+      padding: 0 1.5rem 1rem 1.5rem;
+      border-bottom: 1px solid #2d2f42;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: #cbd5f0;
+    }
+
+    .directory-title i {
+      color: #ffffff;
+    }
+
+    .project-list {
+      margin-top: 0;
+      list-style: none;
+    }
+
+    .project-item {
+      padding: 0.9rem 0;
+      margin: 0.2rem 0;
+      cursor: pointer;
+      transition: opacity 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+      border-left: 3px solid transparent;
+      font-weight: 500;
+      opacity: 0.4;
+    }
+
+    .project-item.active {
+      background: transparent;
+      border-left-color: #ffffff;
+      color: white;
+      opacity: 1;
+    }
+
+    .project-item .item-icon {
+      width: 32px;
+      height: 32px;
+      background: #1e1f2e;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+      flex: 0 0 auto;
+    }
+
+    .project-item .item-name {
+      font-size: 1rem;
+      font-weight: 600;
+      transform-origin: left center;
+      transition: font-size 0.25s ease, transform 0.25s ease;
+    }
+
+    .project-item.active .item-name {
+      font-size: 1.25rem;
+      transform: scale(1.02);
+      font-weight: 400;
+    }
+
+    .project-item .item-desc-preview {
+      font-size: 0.8rem;
+      color: (255, 255, 255, 0.7);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .project-item-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding-left: 1rem;
+    }
+
+    .project-item-detail {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      padding-left: 1rem;
+      transition: max-height 0.35s ease, opacity 0.25s ease, margin-top 0.25s ease;
+    }
+
+    .project-item.active .project-item-detail {
+      max-height: 8rem;
+      opacity: 1;
+      margin-top: 0.75rem;
+    }
+
+    .project-item-detail p {
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin-bottom: 0.65rem;
+      font-weight: 300;
+    }
+
+    .project-link {
+      color: #397BFF;
+      display: inline-flex;
+      font-size: 0.85rem;
+      font-weight: 300;
+      text-decoration: none;
+    }
+
+    .project-item:not(.active):hover {
+      background: transparent;
+      border-left-color: #ffffff;
+      opacity: 0.7;
+    }
+
+    .showcase-area {
+      display: flex;
+      flex-direction: column;
+      gap: 2.2rem;
+      position: relative;
+      width: min(115%, calc(100% + 15vw));
+      max-width: calc(100vw - 2rem);
+      overflow: visible;
+      isolation: isolate;
+    }
+
+    .portfolio-group {
+      margin: 0;
+      scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+      position: relative;
+      z-index: 1;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 28px 28px 28px 28px;
+      padding-top: 1.5rem;
+      overflow: hidden;
+    }
+
+    .work-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: flex-start;
+      gap: 24px;
+      margin: 0 0 1.5rem 0;
+      padding: 0 1.5rem;
+    }
+
+    .work-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .work-year {
+      color: rgba(255, 255, 255, 0.48);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    .visual-work {
+      margin: 0;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 28px 0 0 0;
+      background: #050505;
+    }
+
+    .visual-work img,
+    .visual-work video {
+      display: block;
+      width: 100%;
+      height: auto;
+      min-height: 280px;
+      max-height: 640px;
+      object-fit: cover;
+      border-radius: inherit;
+    }
+
+    .design-summary {
+      margin-top: 2.2rem;
+      background: rgba(16, 18, 28, 0.6);
+      border-radius: 1.5rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid #26293e;
+    }
+
+    .design-summary-inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* 关于区域 (两栏) */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(340px, 0.52fr) minmax(0, 1fr);
+      gap: clamp(4rem, 7vw, 7rem);
+      align-items: stretch;
+    }
+
+    .about-photo {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      border-radius: 32px;
+      overflow: hidden;
+      background: #050505;
+    }
+
+    .about-photo img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-content {
+      display: grid;
+      gap: 2rem;
+      min-width: 0;
+      align-content: start;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: #d8d8d8;
+      line-height: 1.5;
+      font-size: 1.05rem;
+      max-width: 760px;
+    }
+
+    .about-resume-button {
+      margin-top: 0.7rem;
+    }
+
+    .skills {
+      background: #000000;
+      border: 1px solid #252525;
+      padding: 2.2rem;
+      border-radius: 32px;
+      width: 100%;
+    }
+
+    .skills h3 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .skill-list span {
+      background: #000000;
+      border-radius: 40px;
+      padding: 0.4rem 1.1rem;
+      font-size: 0.85rem;
+      font-weight: 500;
+      box-shadow: none;
+      border: 1px solid #2a2a2a;
+    }
+
+    /* 联系区域 */
+    .contact-flex {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 2rem;
+      background: #000000;
+      border: 1px solid #252525;
+      border-radius: 48px;
+      padding: 3rem;
+    }
+
+    .contact-left h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .contact-left p {
+      color: #cfcfcf;
+      max-width: 300px;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 2rem;
+      margin-top: 1.8rem;
+    }
+
+    .social-links a {
+      color: #f5f5f5;
+      font-size: 1.6rem;
+      transition: transform 0.2s, color 0.2s;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-3px);
+      color: #b8b8b8;
+    }
+
+    .contact-email {
+      background: #000000;
+      border-radius: 60px;
+      padding: 0.8rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8rem;
+      box-shadow: none;
+      border: 1px solid #2a2a2a;
+    }
+
+    .contact-email i {
+      font-size: 1.2rem;
+    }
+
+    .contact-email a {
+      text-decoration: none;
+      font-weight: 500;
+      color: #ffffff;
+    }
+
+    footer {
+      border-top: 1px solid #1f1f1f;
+      padding: 2rem 0;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #b8b8b8;
+    }
+
+    /* 响应式 */
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.5rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: start;
+      }
+      .about-photo {
+        max-width: 420px;
+        height: auto;
+        min-height: 0;
+        aspect-ratio: 4 / 5.35;
+      }
+      .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1.5rem;
+      }
+      .directory-area {
+        position: static;
+        max-height: none;
+        overflow: visible;
+      }
+      .contact-flex {
+        flex-direction: column;
+        padding: 2rem;
+      }
+      #work {
+        margin: 0;
+        padding: 5rem 0;
+        border-radius: 0;
+        border: none;
+      }
+      .showcase-area {
+        width: 100%;
+        max-width: 100%;
+      }
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+
+    /* 装饰细微圆点效果 */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: radial-gradient(circle, #333 1px, transparent 1px);
+      background-size: 20px 20px;
+      opacity: 0.3;
+    }
+
+    .moon-surface {
+      --moon-size: clamp(760px, 78vw, 1180px);
+      position: absolute;
+      left: 50%;
+      bottom: calc(var(--moon-size) * -0.72);
+      width: var(--moon-size);
+      transform: translateX(-50%);
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.96;
+    }
+
+    .moon-surface img {
+      display: block;
+      width: 100%;
+      height: auto;
+      filter: contrast(1.04) brightness(0.95);
+      transform-origin: center center;
+      animation: moon-spin 20s linear infinite;
+    }
+
+    @keyframes moon-spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .moon-surface img {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- 导航 -->
+    <nav class="navbar">
+      <div class="brand">
+        <img class="brand-avatar" src="assets/avatar.jpg" alt="">
+        <div class="logo"></div>
+      </div>
+      <div class="nav-links">
+        <a href="#work">设计项目</a>
+        <a href="#about">关于作者</a>
+        <a href="#contact">联系作者</a>
+      </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="hero">
+      <div class="moon-surface" aria-hidden="true">
+        <img src="assets/image 428.svg" alt="">
+      </div>
+      <h1>Hi～ 我是王嘻嘻是一名UXUI设计师</h1>
+      <p>永远保持好奇心且热衷于探索前沿新鲜事物<br>设计的视角去丰富每一天的学习与生活</p>
+      <a href="#work" class="cta-button">设计项目</a>
+      <a href="#contact" class="cta-button secondary">联系作者</a>
+    </section>
+
+    <!-- 设计项目 Work -->
+    <section id="work">
+      <div class="design-projects-header">
+        <h2>设计项目</h2>
+      </div>
+
+      <div class="split-layout">
+        <aside class="directory-area">
+          <ul class="project-list">
+            <li class="project-item active" data-target="design-system">
+              <div class="project-item-header">
+                <div class="item-name">设计系统更新与维护</div>
+                <div class="item-desc-preview">组件设计</div>
+              </div>
+              <div class="project-item-detail">
+                <p>围绕组件、规范与页面结构，整理可复用的界面表达。</p>
+                <a class="project-link" href="#design-system">查看作品>></a>
+              </div>
+            </li>
+            <li class="project-item" data-target="design-workflow">
+              <div class="project-item-header">
+                <div class="item-name">AI赋能与工作流</div>
+                <div class="item-desc-preview">设计提效</div>
+              </div>
+              <div class="project-item-detail">
+                <p>探索 AI 参与设计流程后的效率提升与交互方式。</p>
+                <a class="project-link" href="#design-workflow">查看作品>></a>
+              </div>
+            </li>
+            <li class="project-item" data-target="design-thinking">
+              <div class="project-item-header">
+                <div class="item-name">AI设计思考</div>
+                <div class="item-desc-preview">AI设计项目</div>
+              </div>
+              <div class="project-item-detail">
+                <p>记录生成式体验、产品判断与设计决策中的思考。</p>
+                <a class="project-link" href="#design-thinking">查看作品>></a>
+              </div>
+            </li>
+            <li class="project-item" data-target="motion-design">
+              <div class="project-item-header">
+                <div class="item-name">视频动效设计</div>
+                <div class="item-desc-preview">设计情绪</div>
+              </div>
+              <div class="project-item-detail">
+                <p>用节奏、动效和叙事感补充静态界面的情绪表达。</p>
+                <a class="project-link" href="#motion-design">查看作品>></a>
+              </div>
+            </li>
+          </ul>
+        </aside>
+
+        <div class="showcase-area">
+          <div class="portfolio-group" id="design-system">
+            <div class="work-meta">
+              <span class="work-title">设计系统更新与维护</span>
+              <span class="work-year">2025年</span>
+            </div>
+            <figure class="visual-work">
+              <img src="assets/image组件.png" alt="">
+            </figure>
+          </div>
+
+          <div class="portfolio-group" id="design-workflow">
+            <div class="work-meta">
+              <span class="work-title">AI赋能与工作流</span>
+              <span class="work-year">2025年</span>
+            </div>
+            <figure class="visual-work">
+              <img src="assets/image-card2.jpg" alt="">
+            </figure>
+          </div>
+
+          <div class="portfolio-group" id="design-thinking">
+            <div class="work-meta">
+              <span class="work-title">AI设计思考</span>
+              <span class="work-year">2025年</span>
+            </div>
+            <figure class="visual-work">
+              <img src="assets/10.png" alt="">
+            </figure>
+          </div>
+
+          <div class="portfolio-group" id="motion-design">
+            <div class="work-meta">
+              <span class="work-title">视频动效设计</span>
+              <span class="work-year">2025年</span>
+            </div>
+            <figure class="visual-work">
+              <img src="assets/image22.png" alt="">
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-summary">
+        <div class="design-summary-inner">
+          <div><i class="fas fa-bezier-curve" style="color: #ffffff;"></i> <strong>Wireframe</strong> — Design three unique landing pages for a modern design agency.</div>
+          <div><i class="fab fa-figma" style="color: #ffffff;"></i> <strong>Framer</strong> — I created three unique landing pages in dark mode for your modern design startup: a main landing page, a creative-focused page, and a studio showcase page.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About 区域 -->
+    <section id="about">
+      <div class="section-title">关于作者</div>
+      <div class="about-grid">
+        <figure class="about-photo">
+          <img src="assets/作者照片.jpg" alt="">
+        </figure>
+        <div class="about-content">
+          <div class="about-text">
+            <p>Hi,我是王嘻嘻，是一名UX/UI设计师与Vibe coding探索者，热爱在艺术逻辑与代码结构之间找到平衡</p>
+            <p>22年毕业于湖南科技大学视觉传达系-本科，目前就读于北京印刷学院用户体验设计方向-硕士</p>
+            <p>我相信好的设计不是喧哗的装饰，而是有温度的沟通。我喜欢将细腻的排版、自然的留白和轻盈的动效融为一体，同时保证性能与可访问性。</p>
+            <p>学习之外，我喜欢用照片和视频捕捉日常碎片进行二次创作，以及手工作品和开源创作...</p>
+            <a href="#" class="cta-button about-resume-button">查看简历</a>
+          </div>
+          <div class="skills">
+            <h3>工具 & 技能</h3>
+            <div class="skill-list">
+              <span>Figma</span><span>PS&AI</span><span>AE/PR</span><span>AIGC设计</span>
+              <span>UI 动画</span><span>响应式设计</span><span>设计系统</span><span>Vibe coding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 联系区域 -->
+    <section id="contact">
+      <div class="contact-flex">
+        <div class="contact-left">
+          <h2>联系作者</h2>
+          <p>合作咨询、项目委托或只是打个招呼 :)</p>
+          <div class="social-links">
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+          </div>
+        </div>
+        <div class="contact-email">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:hello@belleduffner.com">727390946@qq.com</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Belle Duffner — Designed with care, coded with curiosity.</p>
+    </footer>
+  </div>
+  <!-- 一个极简的平滑锚点补充（无额外库） -->
+  <script>
+    const scrollToTarget = (selector) => {
+      const target = document.querySelector(selector);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    };
+
+    document.querySelectorAll('.nav-links a, .cta-button, .project-link').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          scrollToTarget(href);
+        }
+      });
+    });
+
+    const projectItems = Array.from(document.querySelectorAll('.project-item[data-target]'));
+    const spyTargets = projectItems
+      .map(item => document.getElementById(item.dataset.target))
+      .filter(Boolean);
+
+    const setActiveProject = (id) => {
+      projectItems.forEach(item => {
+        item.classList.toggle('active', item.dataset.target === id);
+      });
+    };
+
+    projectItems.forEach(item => {
+      item.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return;
+        scrollToTarget(`#${item.dataset.target}`);
+      });
+    });
+
+    const updateActiveProject = () => {
+      const triggerLine = window.innerHeight * 0.38;
+      let activeTarget = spyTargets[0];
+
+      spyTargets.forEach(target => {
+        const rect = target.getBoundingClientRect();
+        if (rect.top <= triggerLine) {
+          activeTarget = target;
+        }
+      });
+
+      if (activeTarget) {
+        setActiveProject(activeTarget.id);
+      }
+    };
+
+    window.addEventListener('scroll', updateActiveProject, { passive: true });
+    window.addEventListener('resize', updateActiveProject);
+    updateActiveProject();
+  </script>
+</body>
+</html>
